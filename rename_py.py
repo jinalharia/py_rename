@@ -32,7 +32,7 @@ class RenameIt(object):
         if self.dryrun:
             print("Performing DryRun: No actions will be taken")
 
-        self.filenames = sorted([str(f) for f in Path().iterdir()])
+        self.filenames = sorted([str(f) for f in Path().iterdir() if f.is_file()])
         matched = sum([self.match_filename(filename, pattern, replacement, self.full) for filename in self.filenames])
         self._print(f'files matched: {matched}')
 
@@ -114,10 +114,25 @@ if __name__ == "__main__":
         action="store_true",
         help="Match only full filename against pattern",
     )
+    
+    subparsers = parser.add_subparsers(help="sub-command help")
+    rename_parser = subparsers.add_parser("rename", help="rename files based on regex pattern")
+    rename_parser.add_argument("pattern", help="regex pattern to match filenames")
+    rename_parser.add_argument("replacement", help="replacement regex pattern for renamed files")
+    rename_parser.add_argument(
+        "-f",
+        "--full",
+        action="store_true",
+        help="Match only full filename against pattern",
+    )
+
+    match_parser = subparsers.add_parser("match", help="rename files based on regex pattern")
+    match_parser.add_argument("pattern", help="regex pattern to match filenames")
+    
 
     args = parser.parse_args()
-    rename_it = RenameIt(
-        args.dryrun, args.silent, args.full, args.pattern, args.replacement
-    )
+    # rename_it = RenameIt(
+    #     args.dryrun, args.silent, args.full, args.pattern, args.replacement
+    # )
     pprint.pprint(vars(args))
     # pprint.pprint(filenames)
