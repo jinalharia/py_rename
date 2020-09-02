@@ -12,7 +12,6 @@ import pprint
 
 filenames = sorted([str(f) for f in Path().iterdir()])
 
-
 class RenameIt(object):
     """Class RenameIt
     
@@ -86,6 +85,33 @@ class RenameIt(object):
         self._rename(filename, new_name)
         return True
 
+    def prefix_filename(self, filename, prefix_str):
+        new_name = prefix_str + filename
+        self._rename(filename, new_name)
+
+    def postfix_filename(self, filename, postfix_str, include_ext=False):
+        if include_ext:
+            new_name = filename + postfix_str
+            self._rename(filename, new_name)
+        else:
+            fname, fext = os.path.splitext(filename)
+            new_name = fname + postfix_str + fext
+            self._rename(filename, new_name)
+
+    def lower_filename(self, filename):
+        new_name = filename.lower()
+        self._rename(filename, new_name)
+
+    def replace_space(self, filename, fill_char="_"):
+        new_name = filename.replace(" ", fill_char)
+        self._rename(filename, new_name)
+
+    def camel_case(self, filename):
+        old_name = filename.replace("_", " ")
+        modified_name = re.findall(r'[\w]+', old_name.lower())
+        new_name = "".join([word.title() for word in modified_name])
+        self._rename(filename,new_name)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -99,15 +125,15 @@ if __name__ == "__main__":
         "-s", "--silent", help="do not print output", action="store_true"
     )
     parser.add_argument(
-        "-d",
+        "-n",
         "--dryrun",
         action="store_true",
         help="Dry run: print names of files to be renamed, but don't rename",
     )
-    parser.add_argument("-p", "--pattern", help="Regex pattern to match filenames")
-    parser.add_argument(
-        "-r", "--replacement", help="Replacement regex pattern for renamed files"
-    )
+    # parser.add_argument("-p", "--pattern", help="Regex pattern to match filenames")
+    # parser.add_argument(
+    #     "-r", "--replacement", help="Replacement regex pattern for renamed files"
+    # )
     parser.add_argument(
         "-f",
         "--full",
@@ -115,24 +141,31 @@ if __name__ == "__main__":
         help="Match only full filename against pattern",
     )
     
-    subparsers = parser.add_subparsers(help="sub-command help")
+    subparsers = parser.add_subparsers(help="sub-command help", dest="command")
     rename_parser = subparsers.add_parser("rename", help="rename files based on regex pattern")
     rename_parser.add_argument("pattern", help="regex pattern to match filenames")
     rename_parser.add_argument("replacement", help="replacement regex pattern for renamed files")
-    rename_parser.add_argument(
-        "-f",
-        "--full",
-        action="store_true",
-        help="Match only full filename against pattern",
-    )
 
     match_parser = subparsers.add_parser("match", help="rename files based on regex pattern")
     match_parser.add_argument("pattern", help="regex pattern to match filenames")
+
+    prefix_parser = subparsers.add_parser("prefix", help="prefix filenames with prefix string")
+    prefix_parser.add_argument("string", help="string to prefix to all filenames in directory")
+
+    postfix_parser = subparsers.add_parser("postfix", help="postfix filenames with prefix string")
+    postfix_parser.add_argument("string", help="string to postfix to all filenames in directory")
+    postfix_parser.add_argument("-e", "--include_ext", action="store_true", default=False, help="include file extension when postifixing string")
+
+    lower_parser = subparsers.add_parser("lower", help="convert filenames to lowercase")
+
+    replace_parser = subparsers.add_parser("replace", help="replace spaces in filenames to _")
     
+    camelCase_parser = subparsers.add_parser("camelcase", help="convert filenames to camel case")
+
 
     args = parser.parse_args()
     # rename_it = RenameIt(
     #     args.dryrun, args.silent, args.full, args.pattern, args.replacement
     # )
     pprint.pprint(vars(args))
-    # pprint.pprint(filenames)
+    pprint.pprint(args.command)
