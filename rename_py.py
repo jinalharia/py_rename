@@ -52,8 +52,8 @@ class RenameIt(object):
         """
         try:
             if not self.dryrun:
-                # os.rename(old_name, new_name)
-                self._print(f"real renaming: {old_name} --> {new_name}")
+                os.rename(old_name, new_name)
+                # self._print(f"real renaming: {old_name} --> {new_name}")
             self._print(f"renaming: {old_name} --> {new_name}")
 
         except OSError as e:
