@@ -2,9 +2,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from rename_py import RenameIt
 from pathlib import Path
-
+from py_rename.py_rename import RenameIt
 
 def test_rename():
     cwd = os.getcwd()
