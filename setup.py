@@ -4,8 +4,8 @@ from py_rename import __version__
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open("requirements.txt", "r") as fh:
-    install_requires = fh.read().splitlines()
+# with open("requirements.txt", "r") as fh:
+#     install_requires = fh.read().splitlines()
 
 setuptools.setup(
     name="py-rename",
@@ -22,7 +22,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=install_requires,
+    # install_requires=install_requires,
     license='MIT',
     python_requires='>=3.6.0',
     entry_points={

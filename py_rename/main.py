@@ -1,6 +1,6 @@
 import argparse
-from .version import __version__
-from .py_rename import RenameIt
+from py_rename.version import __version__
+from py_rename.py_rename import RenameIt
 
 def main():
     parser = argparse.ArgumentParser(
@@ -17,7 +17,7 @@ def main():
         "-n",
         "--dryrun",
         action="store_true",
-        help="Dry run: print names of files to be renamed, but don't rename",
+        help="dry run: print names of files to be renamed, but don't rename",
     )
     parser.add_argument(
         "-f",

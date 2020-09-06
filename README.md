@@ -1,4 +1,4 @@
-# py_rename
+# py-rename
 Python bulk rename package
 
 # Usage
@@ -88,7 +88,7 @@ $ py-rename rename ".+\(00(\d{2})\).+" "\1-Red.txt"
 ```
 
 ## Example 2 - Add prefix string or postfix string to files
-Imagine you have some files awfully named like this:
+Imagine you have some files named like this:
 - `00-Red.txt`
 - `01-Red.txt`
 - `02-Red.txt`
