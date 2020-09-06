@@ -10,7 +10,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="py-rename",
     version=__version__,
-    author="jinalharia",
+    author="Jinal Haria",
     author_email="jinalharia@gmail.com",
     decription="Bulk rename tool for multiple files",
     long_description=long_description,
