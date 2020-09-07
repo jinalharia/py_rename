@@ -1,8 +1,8 @@
 dist: xenial
 language: python
 python:
-#  - "3.6"
-#  - "3.7"
+  - "3.6"
+  - "3.7"
   - "3.8"
 # command to install dependencies
 install:
@@ -11,6 +11,6 @@ before_script:
   - pip install .
 # command to run tests
 script:
-  - pwd
-  - which python
+  - python -m coverage run --source py_rename -m pytest -vv
+  - python -m coverage report -m
 #  - pytest -v
