@@ -1,14 +1,16 @@
 dist: xenial
 language: python
 python:
-  - "3.6"
-  - "3.7"
+#  - "3.6"
+#  - "3.7"
   - "3.8"
 # command to install dependencies
 install:
   - pip install -r requirements-dev.txt
 before_script:
-  - python setup.py develop
+  - pip install .
 # command to run tests
 script:
-  - pytest -v
+  - pwd
+  - which python
+#  - pytest -v
