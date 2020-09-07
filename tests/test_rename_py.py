@@ -1,13 +1,14 @@
 import os
-import sys
-
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# import sys
+# 
+# sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from pathlib import Path
 from py_rename.py_rename import RenameIt
 
 def test_rename():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
@@ -30,6 +31,7 @@ def test_rename():
 def test_prefix():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
@@ -54,6 +56,7 @@ def test_prefix():
 def test_postfix():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
@@ -78,6 +81,7 @@ def test_postfix():
 def test_postfixExt():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
@@ -101,6 +105,7 @@ def test_postfixExt():
 def test_lower():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
@@ -124,6 +129,7 @@ def test_lower():
 def test_replace():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
@@ -147,6 +153,7 @@ def test_replace():
 def test_replaceChar():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
@@ -170,6 +177,7 @@ def test_replaceChar():
 def test_camelcase():
     cwd = os.getcwd()
     try:
+        os.makedirs("tests/res", exist_ok=True)
         os.chdir("tests/res")
 
         for idx in range(3):
