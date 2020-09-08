@@ -1,8 +1,32 @@
 import argparse
+import sys
 from py_rename.version import __version__
 from py_rename.py_rename import RenameIt
 
+
 def main():
+    args = parse_args(sys.argv[1:])
+    rename_it = RenameIt(args.dryrun, args.silent, args.full)
+
+    if args.command == "rename":
+        rename_it.bulk_rename(
+            rename_it.match_filename, args.pattern, args.replacement, args.full
+        )
+    elif args.command == "match":
+        rename_it.bulk_rename(rename_it.match_filename, args.pattern, None, args.full)
+    elif args.command == "prefix":
+        rename_it.bulk_rename(rename_it.prefix_filename, args.string)
+    elif args.command == "postfix":
+        rename_it.bulk_rename(rename_it.postfix_filename, args.string, args.include_ext)
+    elif args.command == "lower":
+        rename_it.bulk_rename(rename_it.lower_filename)
+    elif args.command == "replace":
+        rename_it.bulk_rename(rename_it.replace_space, args.fill_char)
+    elif args.command == "camelcase":
+        rename_it.bulk_rename(rename_it.camel_case)
+
+
+def parse_args(args):
     parser = argparse.ArgumentParser(
         description="Python bulk rename tool for multiple files",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -78,20 +102,4 @@ def main():
         "camelcase", help="convert filenames to camel case"
     )
 
-    args = parser.parse_args()
-    rename_it = RenameIt(args.dryrun, args.silent, args.full)
-
-    if args.command == "rename":
-        rename_it.bulk_rename(rename_it.match_filename, args.pattern, args.replacement, args.full)
-    elif args.command == "match":
-        rename_it.bulk_rename(rename_it.match_filename, args.pattern, None, args.full)
-    elif args.command == "prefix":
-        rename_it.bulk_rename(rename_it.prefix_filename, args.string)
-    elif args.command == "postfix":
-        rename_it.bulk_rename(rename_it.postfix_filename, args.string, args.include_ext)
-    elif args.command == "lower":
-        rename_it.bulk_rename(rename_it.lower_filename)
-    elif args.command == "replace":
-        rename_it.bulk_rename(rename_it.replace_space, args.fill_char)
-    elif args.command == "camelcase":
-        rename_it.bulk_rename(rename_it.camel_case)
+    return parser.parse_args(args)

@@ -1,9 +1,8 @@
 import os
-# import sys
-# 
-# sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from pathlib import Path
 from py_rename.py_rename import RenameIt
+
 
 def test_rename():
     cwd = os.getcwd()
@@ -102,6 +101,7 @@ def test_postfixExt():
     finally:
         os.chdir(cwd)
 
+
 def test_lower():
     cwd = os.getcwd()
     try:
@@ -125,6 +125,7 @@ def test_lower():
 
     finally:
         os.chdir(cwd)
+
 
 def test_replace():
     cwd = os.getcwd()
@@ -150,6 +151,7 @@ def test_replace():
     finally:
         os.chdir(cwd)
 
+
 def test_replaceChar():
     cwd = os.getcwd()
     try:
@@ -173,6 +175,7 @@ def test_replaceChar():
 
     finally:
         os.chdir(cwd)
+
 
 def test_camelcase():
     cwd = os.getcwd()

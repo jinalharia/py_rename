@@ -12,7 +12,7 @@ enter `py-rename -h` for help
 ```shell
 $ py-rename -h
 
-py-rename v0.1.0 - Python rename tool for multiple files
+py-rename - Python rename tool for multiple files
 
 Usage:
 py-rename [OPTIONS] COMMAND [COMMAND-OPTIONS]
@@ -28,9 +28,9 @@ Positional arguments:
 
 Options:
   -h, --help            show this help message and exit
-  -V, --version         show program's version number and exit
+  -V, --version         show program version number and exit
   -s, --silent          do not print output (default: False)
-  -n, --dryrun          Dry run: print names of files to be renamed, but don't
+  -n, --dryrun          Dry run: print names of files to be renamed, but do not
                         rename (default: False)
   -f, --full            Match only full filename against pattern (default:
                         False)
