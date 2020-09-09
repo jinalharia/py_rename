@@ -5,6 +5,10 @@ from py_rename.py_rename import RenameIt
 
 
 def main():
+    """
+    main function to read cli arguments and apply correct logic
+    :return: None
+    """
     args = parse_args(sys.argv[1:])
     rename_it = RenameIt(args.dryrun, args.silent, args.full)
 
@@ -27,6 +31,11 @@ def main():
 
 
 def parse_args(args):
+    """
+    build argument parser function
+    :param args: str, arguments to parser
+    :return: parser args object
+    """
     parser = argparse.ArgumentParser(
         description="Python bulk rename tool for multiple files",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,

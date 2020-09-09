@@ -4,6 +4,10 @@ from py_rename.py_rename import RenameIt
 
 
 def test_rename():
+    """
+    file rename unit test
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -27,6 +31,11 @@ def test_rename():
 
 
 def test_dryrun_match(capsys):
+    """
+    file match unit test with dry run flag
+    :param capsys: read sys out / in / err
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -50,6 +59,10 @@ def test_dryrun_match(capsys):
 
 
 def test_prefix():
+    """
+    filename prefix unit test
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -75,6 +88,10 @@ def test_prefix():
 
 
 def test_postfix():
+    """
+    filename postfix unit test excluding extension
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -100,6 +117,10 @@ def test_postfix():
 
 
 def test_postfixExt():
+    """
+    filename postfix unit test including extension
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -125,6 +146,10 @@ def test_postfixExt():
 
 
 def test_lower():
+    """
+    filename lowercase unit test
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -150,6 +175,10 @@ def test_lower():
 
 
 def test_replace():
+    """
+    filename replace space unit test with default
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -175,6 +204,10 @@ def test_replace():
 
 
 def test_replaceChar():
+    """
+    filename replace space unit test with other character
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
@@ -200,6 +233,10 @@ def test_replaceChar():
 
 
 def test_camelcase():
+    """
+    filename camelcase unit test
+    :return: boolean
+    """
     cwd = os.getcwd()
     try:
         os.makedirs("tests/res", exist_ok=True)
