@@ -1,5 +1,4 @@
 import os
-
 from pathlib import Path
 from py_rename.py_rename import RenameIt
 
@@ -22,6 +21,29 @@ def test_rename():
 
         for idx in range(3):
             os.system(f'rm "0{idx}-Red.txt"')
+
+    finally:
+        os.chdir(cwd)
+
+
+def test_dryrun_match(capsys):
+    cwd = os.getcwd()
+    try:
+        os.makedirs("tests/res", exist_ok=True)
+        os.chdir("tests/res")
+
+        for idx in range(3):
+            os.system(f'touch "ab12+Red+(000{idx}).txt"')
+
+        rename = RenameIt(True, False, True)
+        rename.bulk_rename(rename.match_filename, r".+\(0000\).+", None, True)
+
+        expected_output = "Performing DryRun: No actions will be taken\n('matched ab12+Red+(0000).txt',)\n('not matched ab12+Red+(0001).txt',)\n('not matched ab12+Red+(0002).txt',)\n('files matched: 1',)\n"
+        captured = capsys.readouterr()
+        assert captured.out == expected_output
+
+        for idx in range(3):
+            os.system(f'rm "ab12+Red+(000{idx}).txt"')
 
     finally:
         os.chdir(cwd)
