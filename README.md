@@ -1,8 +1,9 @@
 # py-rename
 Python bulk rename package
 
-[![GitHub version](https://badge.fury.io/gh/jinalharia%2Fpy_rename.svg)](https://badge.fury.io/gh/jinalharia%2Fpy_rename)
-[![PyPI version](https://badge.fury.io/py/py-rename.svg)](https://badge.fury.io/py/py-rename)
+![GitHub](https://img.shields.io/github/license/jinalharia/py_rename)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/jinalharia/py_rename?color=green&label=version)
+![PyPI](https://img.shields.io/pypi/v/py-rename)
 [![Build Status](https://travis-ci.org/jinalharia/py_rename.svg?branch=master)](https://travis-ci.org/jinalharia/py_rename)
 [![codecov](https://codecov.io/gh/jinalharia/py_rename/branch/master/graph/badge.svg)](https://codecov.io/gh/jinalharia/py_rename)
 
