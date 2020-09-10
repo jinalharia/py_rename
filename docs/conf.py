@@ -23,10 +23,10 @@ copyright = "2020, Jinal Haria"
 author = "Jinal Haria"
 
 # The short X.Y version
-version = "1.0"
+version = "1.1"
 
 # The full version, including alpha/beta/rc tags
-release = "1.0"
+release = "1.1"
 
 
 # -- General configuration ---------------------------------------------------
@@ -59,7 +59,11 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # a list of builtin themes.
 #
 # html_theme = 'sphinx_rtd_theme'
-# html_theme = "default"
+on_rtd = os.environ.get("READTHEDOCS") == "True"
+if on_rtd:
+    html_theme = "default"
+else:
+    html_theme = "nature"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

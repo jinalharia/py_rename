@@ -8,6 +8,7 @@ class RenameIt(object):
     This is a generic Rename class with several methods for various types of renaming.
 
     Constructor args:
+
     :param dryrun: just a dry run, no actual renaming performed
     :type dryrun: str, optional
     :param silent: bare minimum will be printed
@@ -19,6 +20,7 @@ class RenameIt(object):
     def __init__(self, dryrun, silent, full):
         """
         Constructor for the class.
+
         :param dryrun: just a dry run, no actual renaming performed
         :param silent: bare minimum will be printed
         :param full: apply regex on full filenames only
@@ -35,6 +37,7 @@ class RenameIt(object):
     def _print(self, *msg):
         """
         Print msg if not silent
+
         :param msg: *str, what to print
         :return: None
         """
@@ -44,6 +47,7 @@ class RenameIt(object):
     def _rename(self, old_name, new_name):
         """
         Generic rename method with error handling
+
         :param old_name: str, filename to change
         :param new_name: str, filename to rename to
         :return: None
@@ -60,6 +64,7 @@ class RenameIt(object):
     def bulk_rename(self, rename_func, *args):
         """
         Apply renaming function to multiple files
+
         :param rename_func: specific renaming function to apply
         :param args: args for the specific renaming function
         :return: None
@@ -69,7 +74,8 @@ class RenameIt(object):
 
     def match_filename(self, filename, pattern, replacement, full):
         """
-        match filename function to generate matches
+        Match filename function to generate matches
+
         :param filename: str, filename
         :param pattern: str, matching regex pattern
         :param replacement: str, replacing regex pattern, can be None
@@ -85,7 +91,8 @@ class RenameIt(object):
 
     def filename_pattern_rename(self, filename, pattern, replacement, match):
         """
-        rename or match regex pattern, do the rename and return True or False if matched
+        Rename or match regex pattern, do the rename and return True or False if matched
+
         :param filename: str, filename
         :param pattern: str, matching regex pattern
         :param replacement: str, replacing regex pattern, can be None
@@ -109,7 +116,8 @@ class RenameIt(object):
 
     def prefix_filename(self, filename, prefix_str):
         """
-        apply prefix to filename
+        Apply prefix to filename
+
         :param filename: str, filename
         :param prefix_str: str, prefix string to apply
         :return: True
@@ -120,7 +128,8 @@ class RenameIt(object):
 
     def postfix_filename(self, filename, postfix_str, include_ext=False):
         """
-        apply postfix to filename
+        Apply postfix to filename
+
         :param filename: str, filename
         :param postfix_str: str, postfix string to apply
         :param include_ext: boolean, apply postfix to filename including file extension or not
@@ -138,7 +147,8 @@ class RenameIt(object):
 
     def lower_filename(self, filename):
         """
-        make filename all lowercase
+        Make filename all lowercase
+
         :param filename: str, filename
         :return: True
         """
@@ -148,7 +158,8 @@ class RenameIt(object):
 
     def replace_space(self, filename, fill_char="_"):
         """
-        replace spaces with a fill character
+        Replace spaces with a fill character
+
         :param filename: str, filename
         :param fill_char: str, char to replace spaces
         :return: True
@@ -159,7 +170,8 @@ class RenameIt(object):
 
     def camel_case(self, filename):
         """
-        amend filename to camel case
+        Amend filename to camel case
+
         :param filename: str, filename
         :return: True
         """

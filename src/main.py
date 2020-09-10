@@ -6,7 +6,8 @@ from src.py_rename import RenameIt
 
 def main():
     """
-    main function to read cli arguments and apply correct logic
+    Main function to read cli arguments and apply correct logic
+
     :return: None
     """
     args = parse_args(sys.argv[1:])
@@ -32,7 +33,8 @@ def main():
 
 def parse_args(args):
     """
-    build argument parser function
+    Build argument parser function
+
     :param args: str, arguments to parser
     :return: parser args object
     """

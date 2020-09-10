@@ -6,6 +6,7 @@ Python bulk rename package
 ![PyPI](https://img.shields.io/pypi/v/py-rename)
 [![Build Status](https://travis-ci.org/jinalharia/py_rename.svg?branch=master)](https://travis-ci.org/jinalharia/py_rename)
 [![codecov](https://codecov.io/gh/jinalharia/py_rename/branch/master/graph/badge.svg)](https://codecov.io/gh/jinalharia/py_rename)
+![Read the Docs](https://img.shields.io/readthedocs/py-rename)
 
 # Usage
 enter `py-rename -h` for help

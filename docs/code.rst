@@ -11,3 +11,8 @@ Argument parsing
 -----------------
 
 .. autofunction:: src.main.parse_args
+
+Main function
+--------------
+
+.. autofunction:: src.main.main
