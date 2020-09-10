@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from py_rename.py_rename import RenameIt
+from src.py_rename import RenameIt
 
 
 def test_rename():

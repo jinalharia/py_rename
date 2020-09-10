@@ -11,7 +11,7 @@ before_script:
   - pip install .
 # command to run tests
 script:
-  - python -m coverage run --source py_rename -m pytest -vv
+  - python -m coverage run --source src -m pytest -vv
   - python -m coverage report -m | tee pytest.log
 after_success:
   - CODECOV_TOKEN="d7ecb417-665b-4365-aae7-ff02cc108d20" bash <(curl -s https://codecov.io/bash)

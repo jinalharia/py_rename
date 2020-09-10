@@ -1,7 +1,7 @@
 import argparse
 import sys
-from py_rename.version import __version__
-from py_rename.py_rename import RenameIt
+from src.version import __version__
+from src.py_rename import RenameIt
 
 
 def main():

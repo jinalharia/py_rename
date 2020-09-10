@@ -4,19 +4,24 @@ from pathlib import Path
 
 
 class RenameIt(object):
-    """Class RenameIt
+    """
+    This is a generic Rename class with several methods for various types of renaming.
+
     Constructor args:
-     :dryrun: Just dry run, no actions performed
-     :silent: Bare minimum will be printed
-     :full: Apply regex on full filenames only
+    :param dryrun: just a dry run, no actual renaming performed
+    :type dryrun: str, optional
+    :param silent: bare minimum will be printed
+    :type silent: str, optional
+    :param full: apply regex on full filenames only
+    :type full: str, optional
     """
 
     def __init__(self, dryrun, silent, full):
         """
         Constructor for the class.
-        :param dryrun: just a dry run, no actual renaming performed:
-        :param silent: bare minimum will be printed:
-        :param full: apply regex on full filenames only:
+        :param dryrun: just a dry run, no actual renaming performed
+        :param silent: bare minimum will be printed
+        :param full: apply regex on full filenames only
         """
         self.silent = silent
         self.dryrun = dryrun
@@ -54,7 +59,7 @@ class RenameIt(object):
 
     def bulk_rename(self, rename_func, *args):
         """
-        apply renaming function to multiple files
+        Apply renaming function to multiple files
         :param rename_func: specific renaming function to apply
         :param args: args for the specific renaming function
         :return: None

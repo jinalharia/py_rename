@@ -1,5 +1,5 @@
 import setuptools
-from py_rename import __version__
+from src import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -33,7 +33,7 @@ setuptools.setup(
     python_requires='>=3.6.0',
     entry_points={
         "console_scripts": [
-            "py-rename = py_rename:main",
+            "py-rename = src:main",
         ],
     },
 )

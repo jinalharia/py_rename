@@ -3,3 +3,4 @@ coverage
 setuptools
 twine
 wheel
+sphinx

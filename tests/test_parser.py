@@ -1,4 +1,4 @@
-from py_rename.main import parse_args
+from src.main import parse_args
 import pytest
 
 
