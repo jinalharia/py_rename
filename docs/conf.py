@@ -23,10 +23,10 @@ copyright = "2020, Jinal Haria"
 author = "Jinal Haria"
 
 # The short X.Y version
-version = "1.1"
+version = "2.0"
 
 # The full version, including alpha/beta/rc tags
-release = "1.1"
+release = "2.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,12 +34,12 @@ release = "1.1"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-# import sphinx_rtd_theme
+import sphinx_rtd_theme
 
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.todo",
-    # "sphinx_rtd_theme",
+    "sphinx_rtd_theme",
 ]
 
 master_doc = "index"
@@ -63,7 +63,7 @@ on_rtd = os.environ.get("READTHEDOCS") == "True"
 if on_rtd:
     html_theme = "default"
 else:
-    html_theme = "nature"
+    html_theme = "sphinx_rtd_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
